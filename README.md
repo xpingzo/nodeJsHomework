@@ -1,6 +1,6 @@
-A simple node server.
+##A simple node server.
 
-Usage
+####Usage
 
 var server = require("../lib/index");
 var port = 8888;
