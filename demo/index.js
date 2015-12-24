@@ -1,8 +1,34 @@
-var server = require("../lib/index");
-var port = 9999;
-var config = {
-    fileMatch: /^(gif|png|jpg|js|css)$/ig,
-    maxAge: 60*60*24*365
-};
+var server = require("../lib/index"),
+    port = 9999,
+    port2 = 8888;
 
-var server1 = server.createServer(port, config);
+var configs = [
+    {
+        suffix: /^jpg$/ig,
+        maxAge: 60*60*24*365
+    },
+    {
+        suffix: /^js$/ig,
+        maxAge: 60*60*24*12
+    },
+    {
+        suffix: /^css$/ig,
+        maxAge: 60*60*24*30
+    }
+];
+var configs2 = [
+    //{
+    //    suffix: /^jpg$/ig,
+    //    maxAge: 60*60*24*365
+    //},
+    {
+        suffix: /^js$/ig,
+        maxAge: 60*60*24*12
+    },
+    {
+        suffix: /^css$/ig,
+        maxAge: 60*60*24*30
+    }
+];
+var server1 = server.createServer(port, configs);
+var server2 = server.createServer(port2, configs2);
